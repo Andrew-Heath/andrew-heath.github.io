@@ -1,0 +1,148 @@
+* {
+    font-family: 'Spectral', sans-serif;
+    box-sizing: border-box;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255,75%);
+    display: flex;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 24px solid #f3f3f3;
+    border-top: 24px solid #3498db;
+    border-radius: 50%;
+    width: 244px;
+    height: 244px;
+    animation: spin 1.25s linear infinite;
+  }
+
+  .loader.ahead {
+    border: 24px solid #f3f3f300;
+    border-top: 24px solid #3498db66;
+    animation-name: spin-ahead;
+  }
+
+  .loader.behind {
+    border: 24px solid #f3f3f300;
+    border-top: 24px solid #3498db88;
+    animation-name: spin-behind;
+  }
+
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes spin-ahead {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(270deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes spin-behind {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(90deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+body {
+    margin: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.top {
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 24px;
+}
+
+div.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+div.section {
+    margin-bottom: 36px;
+}
+
+div.section .header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item.buffer {
+    padding: 0 32px 16px;
+}
+
+.side-by-side {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.side-by-side .buffer {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+div.section .item .label {
+    font-weight: bold;
+}
+
+input, select {
+    width: 140px;
+    margin-right: 4px;
+}
+
+input.short, select.short {
+    width: 48px;
+}
+
+.value {
+    min-width: 56px;
+    min-height: 28px;
+    text-align: left;
+    padding-left: 16px;
+    white-space: pre;
+}
+
+div.bottom {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.bottom button {
+    margin: 0 auto 24px;
+    height: 44px;
+    width: 148px;
+    font-size: 15px;
+    font-weight: bold;
+}

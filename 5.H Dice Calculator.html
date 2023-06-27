@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=utf-8>
+    <title>5.H Dice Calculator</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <script src="calcs.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="overlay" class="hidden">
+        <div class="loader"></div>
+        <div class="loader ahead"></div>
+        <div class="loader behind"></div>
+    </div>
+    <!-- break out components into columns -->
+    <div class="top" onchange="runCalculations()">
+        <!-- Target Column -->
+        <div class="target column" onchange="displayArmorProps()">
+            <!-- Target Abilities -->
+            <div class="section">
+                <div class="header">Target Abilities</div>
+                
+                <div class="item side-by-side">
+                    <div class="item">
+                        <div class="item buffer">
+                            <div class="label">Proficiency</div>
+                            <input name="Proficiency" id="tar_prof" type="number" value="2" min="2" max="6">
+                        </div>
+            
+                        <div class="item buffer">
+                            <div class="label">Dexterity</div>
+                            <input name="Dexterity" id="tar_dex" type="number" value="3">
+                        </div>
+            
+                        <div class="item buffer">
+                            <div class="label">Constitution / Spellcasting</div>
+                            <input name="Constitution" id="tar_con" type="number" value="3">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item buffer">
+                            <div class="label">Total EC</div>
+                            <div id="target_total_ec" class="value"></div>
+                        </div>
+            
+                        <div class="item buffer">
+                            <div class="label">Total DR</div>
+                            <div id="target_total_dr" class="value"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Target Armor -->
+            <div class="section">
+                <div class="header">Target Armor</div>
+    
+                <div class="item side-by-side buffer">
+                    <div class="item">
+                        <div class="label">Armor Type</div>
+                        <select name="Armor Type" id="tar_armor_type">
+                            <option value="light" selected>Light Armor</option>
+                            <option value="medium">Medium Armor</option>
+                            <option value="heavy">Heavy Armor</option>
+                            <option value="natural">Natural Armor</option>
+                            <option value="mage">Mage Armor</option>
+                            <option value="unaBarb">Unarmored (Barbarian)</option>
+                            <option value="unaMonk">Unarmored (Monk)</option>
+                        </select>
+                    </div>
+
+                    <div class="item">
+                        <div class="label">Magic Bonus</div>
+                        <input name="Magic Armor" id="tar_magic" type="number" value="0" min="0" max="3">
+                    </div>
+                </div>
+
+                <div class="item side-by-side buffer">
+                    <div class="item">
+                        <div class="label">Base EC</div>
+                        <div id="value_armor_ec" class="value"></div>
+                    </div>
+        
+                    <div class="item">
+                        <div class="label">Base DR</div>
+                        <div id="value_armor_dr" class="value"></div>
+                    </div>
+                </div>
+    
+                <div class="item side-by-side buffer">
+                    <div class="item">
+                        <div class="label">Max Dex</div>
+                        <div id="value_armor_max_dex" class="value"></div>
+                    </div>
+        
+                    <div class="item">
+                        <div class="label">Max Con / SC</div>
+                        <div id="value_armor_max_con" class="value"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Misc Bonus EC/DR -->
+            <div class="section">
+                <div class="header">Misc Bonuses</div>
+    
+                <div class="item buffer">
+                    <div class="label">Misc EC</div>
+                    <input name="Misc EC" id="tar_misc_ec" type="number" value="0">
+                </div>
+    
+                <div class="item buffer">
+                    <div class="label">Misc DR</div>
+                    <input name="Misc DR" id="tar_misc_dr" type="number" value="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Attacker Column -->
+        <div class="attacker column" onchange="displayWeaponProps()">
+            <!-- Attacker Abilities -->
+            <div class="section">
+                <div class="header">Attacker Abilities</div>
+                
+                <div class="item side-by-side">
+                    <div class="item">
+                        <div class="item buffer">
+                            <div class="label">Proficiency</div>
+                            <input name="Proficiency" id="atk_prof" type="number" value="2" min="2" max="6">
+                        </div>
+            
+                        <div class="item buffer">
+                            <div class="label">Strength / Spellcasting</div>
+                            <input name="Strength" id="atk_str" type="number" value="3">
+                        </div>
+            
+                        <div class="item buffer">
+                            <div class="label">Dexterity</div>
+                            <input name="Dexterity" id="atk_dex" type="number" value="3">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item buffer">
+                            <div class="label">Total Hit</div>
+                            <div id="attacker_total_acc" class="value"></div>
+                        </div>
+            
+                        <div class="item buffer">
+                            <div class="label">Total Damage</div>
+                            <div id="attacker_total_dmg" class="value"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Attacker Weapon -->
+            <div class="section">
+                <div class="header">Attacker Weapon</div>
+    
+                <div class="item side-by-side buffer">
+                    <div class="item">
+                        <div class="label">Weapon Type</div>
+                        <select name="Weapon Type" id="atk_wep_type">
+                            <option value="finesse">Finesse Weapon</option>
+                            <option value="balance" selected>Balanced Weapon</option>
+                            <option value="heavy">Heavy Weapon</option>
+                            <option value="mech">Mechanical</option>
+                            <option value="prop">Propulsive</option>
+                            <option value="spell">Spell Attack</option>
+                        </select>
+                    </div>
+
+                    <div class="item">
+                        <div class="label">Magic Bonus</div>
+                        <input class="short" name="Magic Weapon" id="atk_magic" type="number" value="0" min="0" max="3">
+                    </div>
+                </div>
+
+                <div class="item side-by-side buffer">
+                    <div class="item">
+                        <div class="label">Base Hit</div>
+                        <div class="value" id="value_weapon_acc"></div>
+                    </div>
+
+                    <div class="item">
+                        <div class="label">Base Damage</div>
+                        <div class="value" id="value_weapon_dmg"></div>
+                    </div>
+                </div>
+    
+                <div class="item side-by-side buffer">
+                    <div class="item">
+                        <div class="label">Weapon Dice</div>
+                        <div class="side-by-side">
+                            <select class="short" name="Num Weapon Dice" id="atk_wep_die_num">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            <select class="short" name="Weapon Dice Size" id="atk_wep_die_size">
+                                <option value="d4">d4</option>
+                                <option value="d6">d6</option>
+                                <option value="d8">d8</option>
+                                <option value="d10">d10</option>
+                                <option value="d12">d12</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="label">Bonus Dice</div>
+                        <div class="side-by-side">
+                            <input class="short" name="Num Bonus Dice" id="atk_bonus_die_num" type="number" value="0" min="0" max="6">
+                            <select class="short" name="Bonus Dice Size" id="atk_bonus_die_size">
+                                <option value="d4">d4</option>
+                                <option value="d6">d6</option>
+                                <option value="d8">d8</option>
+                                <option value="d10">d10</option>
+                                <option value="d12">d12</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="label">Bonus Damage</div>
+                        <input class="short" name="Bonus Damage" id="atk_bonus_dmg" type="number" value="0">
+                    </div>
+                </div>
+    
+                <div class="item side-by-side buffer">
+                    <div class="item">
+                        <div class="label">Num Attacks</div>
+                        <input class="short" name="Num Attacks" id="atk_num_attacks" type="number" value="1" min="1" max="4">
+                    </div>
+                    <div class="item">
+                        <div class="label">Bonus Hit</div>
+                        <input class="short" name="Bonus Accuracy" id="atk_bonus_acc" type="number" value="0">
+                    </div>
+                    <div class="item">
+                        <div class="label">Sneak Attack</div>
+                        <input class="short" name="Sneak Attack" id="atk_num_sa" type="number" value="0" min="0" max="10">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attacker Qualifiers -->
+            <div class="section">
+                <div class="header">Attacker Qualifiers</div>
+    
+                <div class="item buffer">
+                    <div class="label">Roll Type</div>
+                    <select name="Roll Type" id="atk_roll_type" onchange="displayArmorProps()">
+                        <option value="adv">Advantage</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="dadv">Disadvantage</option>
+                    </select>
+                </div>
+                <div class="item buffer">
+                    <div class="label">Specialty Attacks</div>
+                    <select name="Specialty Attacks" id="atk_special_attack">
+                        <option value="none" selected>None</option>
+                        <option value="power_attack" disabled>Power Attack</option>
+                        <option value="two_wep_fight">Two Weapon Fighting</option>
+                        <option value="twin_fang" disabled>Twin Fang</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Totals Column -->
+        <div class="totals column">
+            <!-- Accuracy TNs and %s -->
+            <div class="section">
+                <div class="header">Accuracy Statistics</div>
+    
+                <div class="item buffer">
+                    <div class="label">Accuracy Thresholds</div>
+                    <div class="side-by-side">
+                        <div class="buffer">
+                            <div class="label">Crit TN</div>
+                            <div id="result_crit_tn" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Hit TN</div>
+                            <div id="result_hit_tn" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Graze TN</div>
+                            <div id="result_graze_tn" class="value"></div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="item buffer">
+                    <div class="label">Accuracy Percentages</div>
+                    <div class="side-by-side">
+                        <div class="buffer">
+                            <div class="label">Crit</div>
+                            <div id="result_crit_percent" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Hit</div>
+                            <div id="result_hit_percent" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Graze</div>
+                            <div id="result_graze_percent" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Miss</div>
+                            <div id="result_miss_percent" class="value"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Min/Avg/Max Damage -->
+            <div class="section">
+                <div class="header">Damage Statistics</div>
+                <div class="item buffer">
+                    <div class="label">Graze</div>
+                    <div class="side-by-side">
+                        <div class="buffer">
+                            <div class="label">Min</div>
+                            <div id="graze_min_dmg" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Avg</div>
+                            <div id="graze_avg_dmg" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Max</div>
+                            <div id="graze_max_dmg" class="value"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item buffer">
+                    <div class="label">Hit</div>
+                    <div class="side-by-side">
+                        <div class="buffer">
+                            <div class="label">Min</div>
+                            <div id="hit_min_dmg" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Avg</div>
+                            <div id="hit_avg_dmg" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Max</div>
+                            <div id="hit_max_dmg" class="value"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item buffer">
+                    <div class="label">Crit</div>
+                    <div class="side-by-side">
+                        <div class="buffer">
+                            <div class="label">Min</div>
+                            <div id="crit_min_dmg" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Avg</div>
+                            <div id="crit_avg_dmg" class="value"></div>
+                        </div>
+                        <div class="buffer">
+                            <div class="label">Max</div>
+                            <div id="crit_max_dmg" class="value"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="header">Average DPR</div>
+                <div class="item buffer">
+                    <div id="total_average_dpr">total_average_dpr</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
