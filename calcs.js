@@ -139,7 +139,7 @@ function rollSets(iter, dice) {
 
 // takes an array of numbers, min value 0
 // returns the average of them, applying bonuses and penalties
-function average(source, attacker, target, mod=1, {canSa=false, minDmg=0}) {
+function average(source, attacker, target, mod=1, {canSa=false, minDmg=0}={canCa: false, minDmg: 0}) {
     DEBUG && console.log(`      source sets: ${source}`)
 
     const static = attacker.DMG
