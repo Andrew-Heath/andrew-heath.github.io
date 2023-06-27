@@ -3,6 +3,7 @@
 
 A simple HTML/JS calculator for running accuracy, damage, and dpr calculations for different d20 styles.
 [Click here](https://andrew-heath.github.io/dice-calculator.html) to check it out.
+[Click here](https://andrew-heath.github.io/combat-ideas.md) to see additional ideas and explanations of my intents.
 
 ## Current Features
 This calculator is currently designed to calculate Accuracy, Damage, and DPR for an Accuracy vs DR alteration to DnD 5e base rules. Features taken into account include:
