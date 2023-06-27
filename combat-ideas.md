@@ -69,7 +69,12 @@ This is the second half of the equation; the same concept above, but applied to 
 
 And this is isn't including other ways that to alter these values. Shields can increase AC and thus shift these values. Armors can apply different augments to particular thresholds. Armors and Shields might even have once per round abilities to reduce an incoming Attack Roll or grant bonus Damage Reduction.
 
- - **Evasive Features:** Once per round reduce Attack Roll, Reaction to move backwards one space in exchange for forcing Disadvantage on an attack roll, make an attack that comes with bonus movement to exit combat.
- - **Tough Features:** Once per round reduce incoming Damage on top of DR, gain Resistance against certain Elements, Brace type maneuver to generate temporary hit points while drawing aggression.
+- **Evasive Features:** Once per round reduce Attack Roll, Reaction to move backwards one space in exchange for forcing Disadvantage on an attack roll, make an attack that comes with bonus movement to exit combat.
+- **Tough Features:** Once per round reduce incoming Damage on top of DR, gain Resistance against certain Elements, Brace type maneuver to generate temporary hit points while drawing aggression.
+
+## So what about Spellcasting?
+
+That is a *really* good question.
+
 
 [advDayFal]: ## "There are never a reasonable number of combats in a given adventuring day where characters will run out of their resources to make Martials outpace Casters."
