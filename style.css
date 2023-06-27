@@ -29,42 +29,53 @@
     width: 244px;
     height: 244px;
     animation: spin 1.25s linear infinite;
-  }
+}
 
-  .loader.ahead {
+.loader.ahead {
     border: 24px solid #f3f3f300;
     border-top: 24px solid #3498db66;
     animation-name: spin-ahead;
-  }
+}
 
-  .loader.behind {
+.loader.behind {
     border: 24px solid #f3f3f300;
     border-top: 24px solid #3498db88;
     animation-name: spin-behind;
-  }
+}
 
-  
-  @keyframes spin {
+
+@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  }
+}
 
-  @keyframes spin-ahead {
+@keyframes spin-ahead {
     0% { transform: rotate(0deg); }
     50% { transform: rotate(270deg); }
     100% { transform: rotate(360deg); }
-  }
+}
 
-  @keyframes spin-behind {
+@keyframes spin-behind {
     0% { transform: rotate(0deg); }
     50% { transform: rotate(90deg); }
     100% { transform: rotate(360deg); }
-  }
+}
 
 body {
     margin: 24px;
     display: flex;
     flex-direction: column;
+}
+
+div.super {
+    text-align: right;
+    margin: 6px 16px;
+}
+
+div.super a {
+    color: #4287f5;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 div.top {
