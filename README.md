@@ -7,12 +7,16 @@ A simple HTML/JS calculator for running accuracy, damage, and dpr calculations f
 This calculator is currently designed to calculate Accuracy, Damage, and DPR for an Accuracy vs DR alteration to DnD 5e base rules. Features taken into account include:
 
 ### TL;DR
-|Ability Scores|Evasion Class|Weapons|Armor|
-|-|-|-|-|-|
-| STR to Damage|>= EC - Hit, Damage - DR|Finesse use Prof to Hit and Damage|Light use Prof to EC, 1/2 to DR|
-|DEX to Hit/EC|>= EC+10 - Crit, 2x Damage - DR|Balanced use Prof to Hit, 1/2 Prof to Damage|Medium use Prof to EC, 1/2 Prof to DR|
-|CON to HP/DR|>= EC-10 - Graze, 1/2 Damage - DR|Heavy use 1/2 Prof to Hit and Damage, highest Dice|Heavy use 1/2 Prof to EC and Prof to DR|
-||< EC-10 - Miss, 0 damage|
+```
+Ability Scores: STR to Damage, DEX to Hit/EC, CON to HP/DR
++/-10 ranges for Crit (2x), Hit, Graze (1/2x), Miss (0)
+Weapons: Finesse use Prof to Hit and Damage and 1/2 STR, but can TWF
+         Balanced use Prof to Hit, 1/2 to Damage, and STR
+         Heavy use 1/2 Prof to Hit and Damage, STR, and largest Dice
+Armor: Light use Prof to EC and high Max DEX, 1/2 to DR and low Max CON
+       Medium use Prof to EC and mid Max DEX, 1/2 to DR and mid Max CON
+       Heavy use 1/2 Prof to EC and low Max DEX, Prof to DR and high Max CON
+```
 
 
 ### Ruleset List
