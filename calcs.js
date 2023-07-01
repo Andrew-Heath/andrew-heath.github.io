@@ -48,7 +48,7 @@ function runCalculations() {
     // calculate damage
 
     // calc DR, halved if rolls is at ADV
-    const drMod = attacker.d20[0] === ADV ? .5 : 1
+    const drMod = /* attacker.d20[0] === ADV ? .5 : */ 1
     const totalDr = Math.floor(target.DR * drMod)
 
     // min graze damage: (numWepDice + numBonusDice + static)/2 - DR
