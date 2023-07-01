@@ -35,12 +35,12 @@
             
                         <div class="item buffer">
                             <div class="label">Dexterity</div>
-                            <input name="Dexterity" id="tar_dex" type="number" value="3">
+                            <input name="Dexterity" id="tar_dex" type="number" value="3" max="6">
                         </div>
             
                         <div class="item buffer">
                             <div class="label">Constitution / Spellcasting</div>
-                            <input name="Constitution" id="tar_con" type="number" value="3">
+                            <input name="Constitution" id="tar_con" type="number" value="3" max="6">
                         </div>
                     </div>
 
@@ -67,10 +67,12 @@
                     <div class="item">
                         <div class="label">Armor Type</div>
                         <select name="Armor Type" id="tar_armor_type">
+                            <option value="unarmored">Unarmored</option>
                             <option value="light" selected>Light Armor</option>
                             <option value="medium">Medium Armor</option>
                             <option value="heavy">Heavy Armor</option>
-                            <option value="natural">Natural Armor</option>
+                            <option value="lNatural">Natural Armor (Light)</option>
+                            <option value="hNatural">Natural Armor (Heavy)</option>
                             <option value="mage">Mage Armor</option>
                             <option value="unaBarb">Unarmored (Barbarian)</option>
                             <option value="unaMonk">Unarmored (Monk)</option>
@@ -139,12 +141,12 @@
             
                         <div class="item buffer">
                             <div class="label">Strength / Spellcasting</div>
-                            <input name="Strength" id="atk_str" type="number" value="3">
+                            <input name="Strength" id="atk_str" type="number" value="3" max="6">
                         </div>
             
                         <div class="item buffer">
                             <div class="label">Dexterity</div>
-                            <input name="Dexterity" id="atk_dex" type="number" value="3">
+                            <input name="Dexterity" id="atk_dex" type="number" value="3" max="6">
                         </div>
                     </div>
 

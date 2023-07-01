@@ -279,10 +279,16 @@ class Target {
 */
 class Armor {
     _armorLib = {
+        unarmored: {
+            ecMod: 1,
+            drMod: 0,
+            maxDex: 6,
+            maxCon: 0
+        },
         light: {
             ecMod: 1,
             drMod: .5,
-            maxDex: 5,
+            maxDex: 6,
             maxCon: 1
         },
         medium: {
@@ -295,31 +301,37 @@ class Armor {
             ecMod: .5,
             drMod: 1,
             maxDex: 1,
-            maxCon: 5
+            maxCon: 6
         },
-        natural: {
+        lNatural: {
             ecMod: 1,
             drMod: .5,
-            maxDex: 1,
-            maxCon: 5
+            maxDex: 6,
+            maxCon: 3
+        },
+        hNatural: {
+            ecMod: .5,
+            drMod: 1,
+            maxDex: 3,
+            maxCon: 6
         },
         mage: {
             ecMod: 1,
             drMod: .5,
-            maxDex: 5,
-            maxCon: 5
+            maxDex: 6,
+            maxCon: 6
         },
         unaBarb: {
-            ecMod: 1,
+            ecMod: .5,
             drMod: 1,
-            maxDex: 5,
-            maxCon: 5
+            maxDex: 6,
+            maxCon: 6
         },
         unaMonk: {
             ecMod: 1,
             drMod: 0,
-            maxDex: 5,
-            maxCon: 5
+            maxDex: 6,
+            maxCon: 0
         }
     }
 
