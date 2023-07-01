@@ -449,17 +449,17 @@ class Weapon {
             dmgMod: .5,
             strMod: 1
         },
-        mech: {
-            accMod: 1,
-            dexMod: 1,
-            dmgMod: 1,
-            strMod: 0
-        },
         prop: {
             accMod: 1,
             dexMod: 1,
             dmgMod: 1,
             strMod: .5
+        },
+        mech: {
+            accMod: 1,
+            dexMod: 1,
+            dmgMod: 1,
+            strMod: 0
         },
         spell: {
             accMod: 1,
