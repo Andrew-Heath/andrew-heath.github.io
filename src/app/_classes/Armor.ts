@@ -1,3 +1,4 @@
+import { NONE } from "../_models/consts"
 import { ArmorStats } from "../_models/items"
 import { uuid } from "../_utils/misc"
 
@@ -15,9 +16,20 @@ export class Armor implements ArmorStats {
     drMod: number
     maxDex: number
     maxCon: number
+    magic: number
     conApplies: "acMod" | "drMod" | "both"
 
-    constructor(name: string, { ecMod, acMod, drMod, maxDex, maxCon, conApplies}: ArmorStats) {
+    constructor({
+        name,
+        ecMod=2,
+        acMod=2,
+        drMod=2,
+        maxDex=2,
+        maxCon=2,
+        magic=0,
+        conApplies="both",
+    }: ArmorStats) {
+
         this.name = name
         this.id = uuid(name)
         this.ecMod = ecMod
@@ -25,6 +37,7 @@ export class Armor implements ArmorStats {
         this.drMod = drMod
         this.maxDex = maxDex
         this.maxCon = maxCon
-        this.conApplies = conApplies || "acMod"
+        this.magic = Math.min(3, Math.max(0, magic))
+        this.conApplies = conApplies
     }
 }

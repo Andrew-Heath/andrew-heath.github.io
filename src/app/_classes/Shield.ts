@@ -16,12 +16,10 @@ export class Armor implements ShieldStats {
     minStr: number | null = null
     special: string = NONE
 
-    constructor(name: string, { ecMod=0, acMod=0, minStr=null, special=NONE }: ShieldStats) {
+    constructor(name: string, { ecMod=0, acMod=0 }: ShieldStats) {
         this.name = name
         this.id = uuid(name)
         this.ecMod = ecMod
         this.acMod = acMod
-        this.minStr = minStr
-        this.special = [DEFLECT, ABSORPTION, COVER].includes(special) ? special : NONE
     }
 }
