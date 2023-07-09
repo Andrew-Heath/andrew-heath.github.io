@@ -1,0 +1,11 @@
+{
+  "name": "andrew-heath.github.io",
+  "version": "1.0.0",
+  "description": "A collection of thoughts and tests on DnD 5e style TTRPGs.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"TBD\""
+  },
+  "author": "Andrew Heath",
+  "license": "ISC"
+}
