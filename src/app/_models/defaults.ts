@@ -1,4 +1,4 @@
-import { ArmorLib } from "./items";
+import { ArmorLib, WeaponLib } from "./items";
 
 // base armor stats to initialize with
 export const armorLib: ArmorLib = {
@@ -73,5 +73,50 @@ export const armorLib: ArmorLib = {
         maxDex: 5,
         maxCon: 5,
         conApplies: "acMod"
+    }
+}
+
+export const weaponLib: WeaponLib = {
+    finesse: {
+        accMod: 1,
+        dexMod: 1,
+        dmgMod: 1,
+        strMod: .5,
+        dmgAbility: "str"
+    },
+    balance: {
+        accMod: 1,
+        dexMod: 1,
+        dmgMod: .5,
+        strMod: 1,
+        dmgAbility: "str"
+    },
+    heavy: {
+        accMod: 1,
+        dexMod: .5,
+        dmgMod: .5,
+        strMod: 1,
+        dmgAbility: "str"
+    },
+    prop: {
+        accMod: 1,
+        dexMod: 1,
+        dmgMod: 1,
+        strMod: .5,
+        dmgAbility: "str"
+    },
+    mech: {
+        accMod: 1,
+        dexMod: 1,
+        dmgMod: 1,
+        strMod: 0,
+        dmgAbility: "none"
+    },
+    spell: {
+        accMod: 1,
+        dexMod: 1,
+        dmgMod: 1,
+        strMod: 1,
+        dmgAbility: "casting"
     }
 }

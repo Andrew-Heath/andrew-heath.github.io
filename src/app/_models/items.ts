@@ -10,3 +10,15 @@ export interface ArmorStats {
 export interface ArmorLib {
     [key: string]: ArmorStats;
 }
+
+export interface WeaponStats {
+    accMod: number;
+    dexMod: number;
+    dmgMod: number;
+    strMod: number;
+    dmgAbility: "str" | "dex" | "casting" | "none";
+}
+
+export interface WeaponLib {
+    [key: string]: WeaponStats;
+}
