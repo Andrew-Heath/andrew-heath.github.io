@@ -8,7 +8,7 @@ import { uuid } from "../_utils/misc"
 
     returns just the armor info
 */
-export class Armor implements ShieldStats {
+export class Shield implements ShieldStats {
     name: string
     id: string
     ecMod: number
