@@ -1,6 +1,6 @@
 import { Dice } from "../_models/dice"
 import { WeaponStats } from "../_models/items"
-import { uuid } from "../_utils/misc"
+import { median, uuid } from "../_utils/misc"
 
 /*
     Weapon
@@ -17,7 +17,7 @@ export class Weapon implements WeaponStats {
     dmgMod: number
     strMod: number
     magic: number
-    dmgAbility: "str" | "dex" | "casting" | "none"
+    dmgAbility: "STR" | "DEX" | "CAST" | "NONE"
 
     constructor({
         name,
@@ -27,7 +27,7 @@ export class Weapon implements WeaponStats {
         dmgMod=1,
         strMod=1,
         magic=0,
-        dmgAbility="str",
+        dmgAbility="STR",
     }: WeaponStats) {
 
         this.name = name
@@ -37,7 +37,7 @@ export class Weapon implements WeaponStats {
         this.dexMod = dexMod
         this.dmgMod = dmgMod
         this.strMod = strMod
-        this.magic = Math.min(3, Math.max(0, magic))
+        this.magic = median(0, magic, 3)
         this.dmgAbility = dmgAbility
     }
 }

@@ -1,6 +1,6 @@
-import { NONE } from "../_models/consts"
+import { BOTH, NONE } from "../_models/consts"
 import { ArmorStats } from "../_models/items"
-import { uuid } from "../_utils/misc"
+import { median, uuid } from "../_utils/misc"
 
 /*
     Armor
@@ -17,7 +17,7 @@ export class Armor implements ArmorStats {
     maxDex: number
     maxCon: number
     magic: number
-    conApplies: "acMod" | "drMod" | "both"
+    conApplies: 'ACMOD' | 'DRMOD' | 'BOTH'
 
     constructor({
         name,
@@ -27,7 +27,7 @@ export class Armor implements ArmorStats {
         maxDex=2,
         maxCon=2,
         magic=0,
-        conApplies="both",
+        conApplies=BOTH,
     }: ArmorStats) {
 
         this.name = name
@@ -37,7 +37,7 @@ export class Armor implements ArmorStats {
         this.drMod = drMod
         this.maxDex = maxDex
         this.maxCon = maxCon
-        this.magic = Math.min(3, Math.max(0, magic))
+        this.magic = median(0, magic, 3)
         this.conApplies = conApplies
     }
 }

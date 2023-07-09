@@ -1,3 +1,6 @@
+import { Armor } from "../_classes/Armor";
+import { Shield } from "../_classes/Shield";
+import { Weapon } from "../_classes/Weapon";
 import { Dice } from "./dice";
 
 export interface ArmorStats {
@@ -8,7 +11,7 @@ export interface ArmorStats {
     maxDex: number;
     maxCon: number;
     magic: number;
-    conApplies: "acMod" | "drMod" | "both";
+    conApplies: 'ACMOD' | 'DRMOD' | 'BOTH';
 }
 
 export interface ArmorLib {
@@ -23,7 +26,7 @@ export interface WeaponStats {
     dmgMod: number;
     strMod: number;
     magic: number;
-    dmgAbility: "str" | "dex" | "casting" | "none";
+    dmgAbility: "STR" | "DEX" | "CAST" | "NONE";
 }
 
 export interface WeaponLib {

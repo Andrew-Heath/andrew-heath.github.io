@@ -10,3 +10,13 @@ export const COVER = 'COVER'
 export const TWF = 'TWF'
 export const POWER_ATTACK = 'POWER_ATTACK'
 export const TWIN_FANG = 'TWIN_FANG'
+
+// Armor Consts
+export const ACMOD = 'ACMOD'
+export const DRMOD = 'DRMOD'
+export const BOTH = 'BOTH'
+
+// Weapon Consts
+export const STR = 'STR'
+export const DEX = 'DEX'
+export const CAST = 'CAST'

@@ -1,4 +1,4 @@
-import { ABSORPTION, DEFLECT, COVER, NONE } from "./consts";
+import { ACMOD, CAST, NONE, STR } from "./consts";
 import { ArmorLib, ShieldLib, WeaponLib } from "./items";
 
 // base armor stats to initialize with
@@ -11,7 +11,7 @@ export const armorLib: ArmorLib = {
         maxDex: 5,
         maxCon: 0,
         magic: 0,
-        conApplies: "acMod"
+        conApplies: ACMOD
     },
     light: {
         name: "Light Armor",
@@ -21,7 +21,7 @@ export const armorLib: ArmorLib = {
         maxDex: 5,
         maxCon: 1,
         magic: 0,
-        conApplies: "acMod"
+        conApplies: ACMOD
     },
     medium: {
         name: "Medium Armor",
@@ -31,7 +31,7 @@ export const armorLib: ArmorLib = {
         maxDex: 3,
         maxCon: 3,
         magic: 0,
-        conApplies: "acMod"
+        conApplies: ACMOD
     },
     heavy: {
         name: "Heavy Armor",
@@ -41,7 +41,7 @@ export const armorLib: ArmorLib = {
         drMod: 8,
         maxDex: 1,
         maxCon: 5,
-        conApplies: "acMod"
+        conApplies: ACMOD
     },
     lNatural: {
         name: "Natural Armor (Light)",
@@ -51,7 +51,7 @@ export const armorLib: ArmorLib = {
         drMod: 3,
         maxDex: 5,
         maxCon: 3,
-        conApplies: "acMod"
+        conApplies: ACMOD
     },
     hNatural: {
         name: "Natural Armor (Heavy)",
@@ -61,7 +61,7 @@ export const armorLib: ArmorLib = {
         drMod: 6,
         maxDex: 3,
         maxCon: 5,
-        conApplies: "acMod"
+        conApplies: ACMOD
     },
     mage: {
         name: "Mage Armor (Spell)",
@@ -71,7 +71,7 @@ export const armorLib: ArmorLib = {
         drMod: 3,
         maxDex: 5,
         maxCon: 5,
-        conApplies: "acMod"
+        conApplies: ACMOD
     },
     unaBarb: {
         name: "Unarmored (Barbarian)",
@@ -81,7 +81,7 @@ export const armorLib: ArmorLib = {
         drMod: 5,
         maxDex: 5,
         maxCon: 7,
-        conApplies: "acMod"
+        conApplies: ACMOD
     },
     unaMonk: {
         name: "Unarmored (Monk)",
@@ -91,7 +91,7 @@ export const armorLib: ArmorLib = {
         drMod: 0,
         maxDex: 5,
         maxCon: 5,
-        conApplies: "acMod"
+        conApplies: ACMOD
     }
 }
 
@@ -104,7 +104,7 @@ export const weaponLib: WeaponLib = {
         dexMod: 1,
         dmgMod: 1,
         strMod: .5,
-        dmgAbility: "str"
+        dmgAbility: STR
     },
     balance: {
         name: "Balanced Weapon",
@@ -114,7 +114,7 @@ export const weaponLib: WeaponLib = {
         dexMod: 1,
         dmgMod: .5,
         strMod: 1,
-        dmgAbility: "str"
+        dmgAbility: STR
     },
     heavy: {
         name: "Heavy Weapon",
@@ -124,7 +124,7 @@ export const weaponLib: WeaponLib = {
         dexMod: .5,
         dmgMod: .5,
         strMod: 1,
-        dmgAbility: "str"
+        dmgAbility: STR
     },
     mech: {
         name: "Mechanical Weapon",
@@ -134,7 +134,7 @@ export const weaponLib: WeaponLib = {
         dexMod: 1,
         dmgMod: 1,
         strMod: 0,
-        dmgAbility: "none"
+        dmgAbility: NONE
     },
     spell: {
         name: "Spell Attack",
@@ -144,7 +144,7 @@ export const weaponLib: WeaponLib = {
         dexMod: 1,
         dmgMod: 1,
         strMod: 1,
-        dmgAbility: "casting"
+        dmgAbility: CAST
     }
 }
 
