@@ -42,3 +42,17 @@ export interface ShieldStats {
 export interface ShieldLib {
     [key: string]: ShieldStats
 }
+
+export interface CharacterModel {
+    name: string;
+    level?: number;
+    prof?: number | null;
+    STR: number;
+    DEX: number;
+    CON: number;
+    CAST: number;
+    armor: Armor;
+    weapon: Weapon;
+    shield: Shield | null;
+    sneakAttack: number;
+}
