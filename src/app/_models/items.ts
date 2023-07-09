@@ -22,3 +22,15 @@ export interface WeaponStats {
 export interface WeaponLib {
     [key: string]: WeaponStats;
 }
+
+export interface ShieldStats {
+    name?: string,
+    ecMod: number;
+    acMod: number;
+    minStr: number | null;
+    special: string
+}
+
+export interface ShieldLib {
+    [key: string]: ShieldStats
+}

@@ -1,4 +1,5 @@
-import { ArmorLib, WeaponLib } from "./items";
+import { ABSORPTION, DEFLECT, COVER } from "./consts";
+import { ArmorLib, ShieldLib, WeaponLib } from "./items";
 
 // base armor stats to initialize with
 export const armorLib: ArmorLib = {
@@ -118,5 +119,29 @@ export const weaponLib: WeaponLib = {
         dmgMod: 1,
         strMod: 1,
         dmgAbility: "casting"
+    }
+}
+
+export const shieldLib: ShieldLib = {
+    buckler: {
+        name: "Buckler",
+        ecMod: 1,
+        acMod: 0,
+        minStr: null,
+        special: DEFLECT
+    },
+    heater: {
+        name: "Heater Sheald",
+        ecMod: 2,
+        acMod: 0,
+        minStr: null,
+        special: ABSORPTION
+    },
+    tower: {
+        name: "Tower Shield",
+        ecMod: 0,
+        acMod: 2,
+        minStr: 3,
+        special: COVER
     }
 }
